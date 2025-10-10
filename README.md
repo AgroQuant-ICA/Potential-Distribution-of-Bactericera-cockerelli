@@ -5,7 +5,7 @@ This repository contains the occurrence data used in the study:
 **"Potential Distribution of *Bactericera cockerelli* in Colombia: Multi-Scale Epidemiological Approach Under Climate Change Scenarios"**
 
 ## 📂 Contents
-- `data/Colombia_presences.csv` – Confirmed presence records of *B. cockerelli* (2021–2024) from ICA official surveillance in Nariño department.
+- `Bactericera cockerelli Colombia ICA.xlsx` – Confirmed presence records of *B. cockerelli* (2021–2024) from ICA official surveillance in Nariño department.
 - `data/Global_presences.csv` – Global occurrence data compiled from GBIF and published literature.
 - `data/Metadata_presences.txt` – Metadata describing data sources, temporal coverage, and spatial reference.
 
