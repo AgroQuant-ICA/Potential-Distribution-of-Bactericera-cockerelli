@@ -1,8 +1,5 @@
-###### ───────────────────────────────────────────────────────────
 
 ### STRATIFIED ENVIRONMENTAL SAMPLING FOR SPECIES DISTRIBUTION MODELS
-
-###### ───────────────────────────────────────────────────────────
 
 ###### This script implements stratified sampling in environmental space using
 
@@ -14,21 +11,14 @@
 
 ###### while minimizing spatial autocorrelation biases.
 
-###### ────────────────────────────────────────────────────────────────
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 1: CLIMATE DATA LOADING AND PREPARATION
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Load bioclimatic variables from WorldClim v2.1 (1970-2000 baseline) and
 
 ###### ENVIREM datasets at 2.5 arc-minute resolution, as specified in the manuscript
 
 ###### Methods section on “Environment Predictors Selection”
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
     # Load baseline climate data (current conditions: 1970-2000)
     bioclim_data <- rast("C:/Users/manuel.cortes/Desktop/PMP2024/Bactericera/data/2.5 minutos/bioclim_data.tif")
@@ -44,11 +34,9 @@
 
     ## Climate layers loaded: 37 variables
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 2: PREDICTOR VARIABLE SELECTION
 
-### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Select non-correlated environmental predictors based on Spearman correlation
 
@@ -68,7 +56,6 @@
 
 ###### - Variables 21, 22, 26, 34: Key ENVIREM predictors (PET-related variables)
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
     # Select variables based on correlation analysis and ecological relevance
     # Variables selected after multicollinearity assessment (Supplementary Material 3)
@@ -93,11 +80,8 @@
 
     ## Climate data standardized (z-scores)
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 3: PRESENCE DATA LOADING AND PREPROCESSING
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Load B. cockerelli presence records from ICA official surveillance network
 
@@ -105,7 +89,6 @@
 
 ###### on “Species Presence Data”
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
     # Load presence records from official ICA phytosanitary surveillance
     obs_data <- read_excel("C:/Users/manuel.cortes/Desktop/PMP2024/Bactericera/Bactericera cockerelli Colombia Oficial surveillance ICA.xlsx")
@@ -139,11 +122,9 @@
 
     ## Longitude range: -77.85516 -77.1606
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 4: STRATIFIED ENVIRONMENTAL SAMPLING FOR BACKGROUND POINTS
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Implement PCA-based K-means clustering to generate background points through
 
@@ -154,8 +135,6 @@
 ###### sampling rather than traditional geographic randomization to better represent
 
 ###### the environmental heterogeneity of study areas”
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
     # Set seed for reproducibility
     set.seed(20210707)
@@ -418,11 +397,9 @@
 
     ##   - Total points: 2460
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 5: BUFFER CREATION AND ENVIRONMENTAL EXTRACTION
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Construct 500-meter buffers around presence and background points to reduce
 
@@ -431,8 +408,6 @@
 ###### constructed around each presence and background point to help reduce spatial
 
 ###### autocorrelation in B. cockerelli presence records”
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
     cat("=== BUFFER CREATION AND ENVIRONMENTAL EXTRACTION ===\n\n")
 
@@ -529,11 +504,8 @@
 
     ##   - Presence/Background ratio: 0.5
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### SECTION 6: VISUALIZATION OF SAMPLING STRATEGY
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ###### Create map showing Colombia territory with stratified background points
 
@@ -543,7 +515,6 @@
 
 ###### using stratified sampling in environmental space”
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
     cat("=== CREATING VISUALIZATION MAP ===\n\n")
 
@@ -689,11 +660,8 @@
 
     ## Color gradient = Environmental stratum (1-50)
 
-###### ─────────────────────────────────────────────────────────────────────────────
 
 ### OUTPUT SUMMARY
-
-###### ─────────────────────────────────────────────────────────────────────────────
 
 #### The resulting datasets are ready for MaxEnt and Random Forest model calibration:
 
@@ -791,3 +759,4 @@
     cat("=============================================================================\n")
 
     ## =============================================================================
+
