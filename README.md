@@ -15,7 +15,7 @@ Bactericera cockerelli Global.xlsx
 Global occurrence data compiled from GBIF and published literature.
 
 ## 💻 Scripts
-## 🎯 1. Environmental Stratified Sampling
+## 🎯 1. Stratified Sampling in space Environmental
 
 Generates background (pseudoabsence) points using PCA + K-means clustering to ensure balanced representation of environmental gradients and minimize spatial autocorrelation.
 
