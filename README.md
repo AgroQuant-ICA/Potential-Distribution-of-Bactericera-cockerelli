@@ -25,12 +25,12 @@ MaxEnt_tuning.R – explores combinations of feature classes and regularization 
 
 RF_tuning.R – tunes the number of trees and mtry parameter using out-of-bag error minimization with stratified cross-validation.
 
-## 🌡️ 3. Weighted Ensemble of GCMs (2021–2040)
+## 🌡️ 3. Ensemble of GCMs (2021–2040)
 
 Implements a Weighted Ensemble Mean (WEM) combining ten CMIP6 models from WorldClim v2.1.
 Weights are assigned based on Root Mean Square Error (RMSE) and correlation coefficients, producing ensemble projections for Tmax, Tmin, and precipitation under SSP2-4.5 and SSP5-8.5.
 
-## 🧭 4. MESS Analysis
+## 🧭 4. Multivariate Environment Similary Superface Analysis
 
 Identifies climatically analogous zones across Colombia to constrain model projections within ecologically realistic conditions, reducing extrapolation uncertainty.
 
