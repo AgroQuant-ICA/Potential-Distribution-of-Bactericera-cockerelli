@@ -2,22 +2,16 @@
 ### STRATIFIED ENVIRONMENTAL SAMPLING FOR SPECIES DISTRIBUTION MODELS
 
 ###### This script implements stratified sampling in environmental space using
-
 ###### PCA-based K-means clustering to generate background points for B. cockerelli
-
 ###### SDMs, following the methodology described in the manuscript (Methods section).
-
 ###### The approach ensures comprehensive representation of environmental gradients
-
 ###### while minimizing spatial autocorrelation biases.
 
 
 ### SECTION 1: CLIMATE DATA LOADING AND PREPARATION
 
 ###### Load bioclimatic variables from WorldClim v2.1 (1970-2000 baseline) and
-
 ###### ENVIREM datasets at 2.5 arc-minute resolution, as specified in the manuscript
-
 ###### Methods section on “Environment Predictors Selection”
 
     # Load baseline climate data (current conditions: 1970-2000)
@@ -37,23 +31,15 @@
 
 ### SECTION 2: PREDICTOR VARIABLE SELECTION
 
-
 ###### Select non-correlated environmental predictors based on Spearman correlation
-
 ###### analysis (|r| &gt; 0.8 threshold) and variable importance analysis described
-
 ###### in manuscript Methods section. Selected variables represent key environmental
-
 ###### constraints for B. cockerelli establishment:
 
 ###### - BIO2: Mean Diurnal Range
-
 ###### - BIO5: Max Temperature of Warmest Month
-
 ###### - BIO6: Min Temperature of Coldest Month
-
 ###### - BIO12: Annual Precipitation
-
 ###### - Variables 21, 22, 26, 34: Key ENVIREM predictors (PET-related variables)
 
 
@@ -80,15 +66,11 @@
 
     ## Climate data standardized (z-scores)
 
-
 ### SECTION 3: PRESENCE DATA LOADING AND PREPROCESSING
 
 ###### Load B. cockerelli presence records from ICA official surveillance network
-
 ###### in Nariño department (2021-2024), as described in manuscript Methods section
-
 ###### on “Species Presence Data”
-
 
     # Load presence records from official ICA phytosanitary surveillance
     obs_data <- read_excel("C:/Users/manuel.cortes/Desktop/PMP2024/Bactericera/Bactericera cockerelli Colombia Oficial surveillance ICA.xlsx")
@@ -125,15 +107,10 @@
 
 ### SECTION 4: STRATIFIED ENVIRONMENTAL SAMPLING FOR BACKGROUND POINTS
 
-
 ###### Implement PCA-based K-means clustering to generate background points through
-
 ###### stratified sampling in environmental space, as described in manuscript Methods:
-
 ###### “Background points were generated using environmentally space stratified
-
 ###### sampling rather than traditional geographic randomization to better represent
-
 ###### the environmental heterogeneity of study areas”
 
     # Set seed for reproducibility
@@ -400,13 +377,9 @@
 
 ### SECTION 5: BUFFER CREATION AND ENVIRONMENTAL EXTRACTION
 
-
 ###### Construct 500-meter buffers around presence and background points to reduce
-
 ###### spatial autocorrelation, as stated in Methods: “A 500-meter buffer was
-
 ###### constructed around each presence and background point to help reduce spatial
-
 ###### autocorrelation in B. cockerelli presence records”
 
     cat("=== BUFFER CREATION AND ENVIRONMENTAL EXTRACTION ===\n\n")
@@ -508,11 +481,8 @@
 ### SECTION 6: VISUALIZATION OF SAMPLING STRATEGY
 
 ###### Create map showing Colombia territory with stratified background points
-
 ###### colored by environmental cluster and presence points in red, as shown in
-
 ###### manuscript Figure 2: “Background points distribution for SDMs calibration
-
 ###### using stratified sampling in environmental space”
 
 
@@ -664,29 +634,19 @@
 ### OUTPUT SUMMARY
 
 #### The resulting datasets are ready for MaxEnt and Random Forest model calibration:
-
 ###### 1. points\_climate: Complete dataset with environmental predictors and binary
-
 ###### response variable (pa: 1=presence, 0=background)
-
 ###### 2. response: Binary vector for model training (1/0)
-
 ###### 3. presence/absence: Geographic coordinates for spatial validation
-
 ###### 4. cluster\_assignments: Environmental cluster membership for each background
-
 ###### point, useful for spatial blocking in cross-validation
-
 ###### 
 
 ###### This stratified sampling approach ensures:
 
 ###### - Comprehensive environmental gradient representation
-
 ###### - Reduced spatial autocorrelation through 500m buffers
-
 ###### - Proportional sampling across environmental strata
-
 ###### - Robust pseudoabsence selection for presence-only modeling
 
 ###### ─────────────────────────────────────────────────────────────────────────────
@@ -759,4 +719,5 @@
     cat("=============================================================================\n")
 
     ## =============================================================================
+
 
