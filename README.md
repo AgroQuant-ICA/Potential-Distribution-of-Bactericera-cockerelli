@@ -1,5 +1,4 @@
 🐛 Potential Distribution of Bactericera cockerelli in Colombia
-Multi-Scale Epidemiological Modeling Under Climate Change Scenarios
 
 This repository accompanies the manuscript:
 “Potential Distribution of Bactericera cockerelli (Sulc) in Colombia: Multi-Scale Epidemiological Approach Under Climate Change Scenarios”
